@@ -12,14 +12,14 @@ cores_quatro = "#FFFFFF"  # Branco
 root = tk.Tk()
 root.title('Formulário de Entrada de Dados')
 root.geometry("700x560")  # Define as dimensões da janela
-root.configure(bg=cores_dois)  # Define a cor de fundo
+root.configure(bg=cores_dois,  pady=20)  # Define a cor de fundo
 
 # Configura colunas e linhas para centralização
 root.grid_columnconfigure(0, weight=1)
 root.grid_rowconfigure(0, weight=1)
 
 # Cria um frame de container
-frame_container = tk.Frame(root, bg=cores_quatro)
+frame_container = tk.Frame(root, bg=cores_quatro, padx=20, pady=20)
 frame_container.pack()
 
 # Cria um frame com rótulo para informações do usuário
@@ -75,8 +75,23 @@ registered_label.grid(row=0, column=0)
 registered_check = tk.Checkbutton(courses_frame, text="Atualmente Registrado", bg=cores_quatro)
 registered_check.grid(row=1, column=0)
 
+numcourses_label = tk.Label(courses_frame, text="# Completed Courses", bg=cores_quatro)
+numcourses_label.grid(row=0, column=1)
+
+numcourses_spinbox = tk.Spinbox(courses_frame, from_=0, to='infinity')
+numcourses_spinbox.grid(row=1, column=1)
+
+numsemesters_label = tk.Label(courses_frame, text="# Semesters", bg=cores_quatro)
+numsemesters_label.grid(row=0, column=2)
+
+numsemesters_spinbox = tk.Spinbox(courses_frame, from_=0, to="infinity")
+numsemesters_spinbox.grid(row=1, column=2)
+
+
+
 for widget in courses_frame.winfo_children():
     widget.grid_configure(padx=10, pady=5)
+
 
 # Inicia o programa
 root.mainloop()
